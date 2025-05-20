@@ -6,6 +6,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { hash } from 'bcryptjs';
 
 @Controller('/accounts')
 export class CreateAccountController {
@@ -30,6 +31,8 @@ export class CreateAccountController {
       );
     }
 
+    const hashedPassword = await hash(password, 8);
+
     await this.prisma.user.create({
       data: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -37,7 +40,7 @@ export class CreateAccountController {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         email,
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        password,
+        password: hashedPassword,
       },
     });
   }

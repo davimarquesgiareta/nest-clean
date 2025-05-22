@@ -5,7 +5,7 @@ import { CreateAccountController } from './controllers/create-account.controller
 import { envSchema } from 'src/env';
 import { AuthModule } from './auth/auth.module';
 import { AuthenticateController } from './controllers/authenticate-controller';
-import { CreateQuestionController } from './controllers/create-question.controlle';
+import { CreateQuestionController } from './controllers/create-question.controller';
 
 @Module({
   imports: [

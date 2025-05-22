@@ -8,6 +8,7 @@ export default defineConfig({
     globals: true,
     root: './',
     include: ['**/*.e2e-spec.ts'],
+    setupFiles: ['./test/setup-e2e.ts'],
   },
   plugins: [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
